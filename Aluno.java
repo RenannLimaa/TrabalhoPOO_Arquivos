@@ -22,4 +22,8 @@ public class Aluno {
     public void setRespostas(String respostas) {
         this.respostas = respostas;
     }
+
+    public String toSting(){
+        return "nome: " + nome + ", respostas: " + respostas;
+    }
 }

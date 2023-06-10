@@ -29,7 +29,7 @@ public class Crud {
             linha = bufferedReader.readLine();
             while(linha != null){
                 dados = linha.split("\t");
-                aluno =new Aluno(dados[1], dados[0]);
+                aluno = new Aluno(dados[1], dados[0]);
                 alunos.add(aluno);
 
             }
@@ -39,9 +39,23 @@ public class Crud {
             return null;
         }
         
-
+        System.out.println(alunos.get(0).nome);
         return alunos;
 
+    }
+
+    public boolean writeFile(String content, String file ){
+        try {
+            FileWriter fWriter = new FileWriter(file, true);
+            BufferedWriter bWriter = new BufferedWriter(fWriter);
+            bWriter.write(content);
+            bWriter.newLine();
+            bWriter.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+        
     }
 
     public String readGabarito(String gabaritoFile){

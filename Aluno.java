@@ -27,6 +27,6 @@ public class Aluno implements Serializable{
     }
 
     public String toSting(){
-        return "nome: " + nome + ", nota: " + resposta;
+        return "nome: " + nome + "\tnota: " + nota;
     }
 }

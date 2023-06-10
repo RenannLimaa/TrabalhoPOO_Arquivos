@@ -41,7 +41,7 @@ public class Tela {
         System.out.println("Digite o cartao resposta do aluno:");
         respostas = input.nextLine();
 
-        aluno.setRespostas(respostas);
+        aluno.setResposta(respostas);
 
 
         return aluno;

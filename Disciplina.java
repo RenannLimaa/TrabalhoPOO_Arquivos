@@ -20,27 +20,28 @@ public class Disciplina {
         return true;
     }
 
-    public boolean gerarResultado(ArrayList<Aluno> alunos){
-         
-
-        return false;
-    } 
-    public void corrigirProvas(String gabaritoFile){
-        String resposta  = "";
-        int pontos = 0;
-        try {
-            FileReader fReader = new FileReader("Data/" +  gabaritoFile + ".txt");
-            BufferedReader bReader = new BufferedReader(fReader);
-            resposta = bReader.readLine();
-            fReader.close();
-            bReader.close();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void gerarResultado(){
+        Crud write = new Crud();
+        corrigirProvas(nome);
 
         for (Aluno aluno : alunos) {
+            write.writeFile(aluno.toString(), "Data/Relatório" + nome +".txt");
+        }
+
+    } 
+
+
+    public void corrigirProvas(String gabaritoFile){
+        int pontos = 0;
+        Crud read = new Crud();
+        String gabarito = read.readGabarito(gabaritoFile);
+
+        for (Aluno aluno : alunos) {
+            if(aluno.resposta.equals("VVVVVVVVVV") || aluno.resposta.equals("FFFFFFFFFF")){
+                continue;
+            }
             for(int i = 0; i < 10 ; i++){
-                if(resposta.charAt(i) == aluno.resposta.charAt(i))
+                if(gabarito.charAt(i) == aluno.resposta.charAt(i))
                     pontos++;
             }
             aluno.nota = pontos;

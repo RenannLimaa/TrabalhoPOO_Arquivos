@@ -28,7 +28,7 @@ public class Crud {
             linha = bufferedReader.readLine();
             while(linha != null){
                 dados = linha.split("\t");
-                aluno =new Aluno(dados[1], dados[0]);
+                aluno = new Aluno(dados[1], dados[0]);
                 alunos.add(aluno);
                 linha = bufferedReader.readLine();
 
@@ -39,9 +39,38 @@ public class Crud {
             return null;
         }
         
-
+        System.out.println(alunos.get(0).nome);
         return alunos;
 
+    }
+
+    public boolean writeFile(String content, String file ){
+        try {
+            FileWriter fWriter = new FileWriter(file, true);
+            BufferedWriter bWriter = new BufferedWriter(fWriter);
+            bWriter.write(content);
+            bWriter.newLine();
+            bWriter.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+        
+    }
+
+    public String readGabarito(String gabaritoFile){
+        String resposta = "";
+        try {
+            FileReader fReader = new FileReader("Data/" +  gabaritoFile + ".txt");
+            BufferedReader bReader = new BufferedReader(fReader);
+            resposta = bReader.readLine();
+            fReader.close();
+            bReader.close();
+            return resposta;
+        } catch (Exception e) {
+            System.out.println(e);
+            return "arquivo corrompido";
+        }
     }
 
 

@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Scanner;
 
 public class Tela {
@@ -7,6 +8,20 @@ public class Tela {
         System.out.println("1. Adicionar disciplina");
         System.out.println("2. Consultar disciplina");
         System.out.println("Sair do programa");  // System.exit();
+    }
+
+    public void mostrarDisciplinas() {
+        File CaminhoDoDiretorio = new File("Data");
+        File listaDeArquivos[] = CaminhoDoDiretorio.listFiles();
+
+        if(listaDeArquivos.length == 0)
+            System.out.println("O diretorio esta vazio");
+
+        else {
+            for(File arquivo: listaDeArquivos) {
+                System.out.println(arquivo.getName());
+            }
+        }
     }
 
     public void mostrarTelaDisciplina() {
@@ -26,7 +41,7 @@ public class Tela {
         System.out.println("Digite o cartao resposta do aluno:");
         respostas = input.nextLine();
 
-        aluno.setRespostas(respostas);
+        aluno.setResposta(respostas);
 
 
         return aluno;

@@ -25,7 +25,7 @@ public class Aluno implements Serializable{
         this.respostas = respostas;
     }
 
-    public String toSting(){
+    public String toString(){
         return "nome: " + nome + ", respostas: " + respostas;
     }
 }

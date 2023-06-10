@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 
 public class Crud {
     
@@ -12,6 +13,31 @@ public class Crud {
         } catch (Exception e) {
             return false;
         }
+
+    }
+    public ArrayList<Aluno> readFile(String disciplina){
+        ArrayList <Aluno> alunos = new ArrayList<Aluno>();
+        Aluno aluno;
+        String dados[], linha;
+        
+        try{
+            FileReader fileReader = new FileReader("Data/"+disciplina+".txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            linha = bufferedReader.readLine();
+            while(linha != null){
+                dados = linha.split("\t");
+                aluno =new Aluno(dados[1], dados[0]);
+                alunos.add(aluno);
+
+            }
+            fileReader.close();
+            bufferedReader.close();
+        } catch(Exception e){
+            return null;
+        }
+        
+
+        return alunos;
 
     }
 

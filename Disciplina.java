@@ -18,5 +18,11 @@ public class Disciplina {
         return true;
     }
 
+    public boolean gerarResultado(ArrayList<Aluno> alunos){
+         
+
+        return false;
+    } 
+
     
 }

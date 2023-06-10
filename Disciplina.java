@@ -20,6 +20,11 @@ public class Disciplina {
         return true;
     }
 
+    public boolean gerarResultado(ArrayList<Aluno> alunos){
+         
+
+        return false;
+    } 
     public void corrigirProvas(String gabaritoFile){
         String resposta  = "";
         int pontos = 0;

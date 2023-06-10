@@ -44,6 +44,21 @@ public class Crud {
 
     }
 
+    public String readGabarito(String gabaritoFile){
+        String resposta = "";
+        try {
+            FileReader fReader = new FileReader("Data/" +  gabaritoFile + ".txt");
+            BufferedReader bReader = new BufferedReader(fReader);
+            resposta = bReader.readLine();
+            fReader.close();
+            bReader.close();
+            return resposta;
+        } catch (Exception e) {
+            System.out.println(e);
+            return "arquivo corrompido";
+        }
+    }
+
 
     public boolean createFile(String disciplina){
 

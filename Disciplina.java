@@ -26,21 +26,13 @@ public class Disciplina {
         return false;
     } 
     public void corrigirProvas(String gabaritoFile){
-        String resposta  = "";
         int pontos = 0;
-        try {
-            FileReader fReader = new FileReader("Data/" +  gabaritoFile + ".txt");
-            BufferedReader bReader = new BufferedReader(fReader);
-            resposta = bReader.readLine();
-            fReader.close();
-            bReader.close();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        Crud read = new Crud();
+        String gabarito = read.readGabarito(gabaritoFile);
 
         for (Aluno aluno : alunos) {
             for(int i = 0; i < 10 ; i++){
-                if(resposta.charAt(i) == aluno.resposta.charAt(i))
+                if(gabarito.charAt(i) == aluno.resposta.charAt(i))
                     pontos++;
             }
             aluno.nota = pontos;

@@ -18,8 +18,7 @@ public class Crud {
         }
 
     }
-    public ArrayList<Aluno> readFile(String disciplina){
-        ArrayList <Aluno> alunos = new ArrayList<Aluno>();
+    public ArrayList<Aluno> readFile(String disciplina, Disciplina disciplinaa){
         Aluno aluno;
         String dados[], linha;
         
@@ -31,6 +30,7 @@ public class Crud {
                 dados = linha.split("\t");
                 aluno =new Aluno(dados[1], dados[0]);
                 alunos.add(aluno);
+                linha = bufferedReader.readLine();
 
             }
             fileReader.close();

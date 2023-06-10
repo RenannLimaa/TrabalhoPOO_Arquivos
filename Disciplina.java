@@ -35,7 +35,7 @@ public class Disciplina {
 
         for (Aluno aluno : alunos) {
             for(int i = 0; i < 10 ; i++){
-                if(resposta.charAt(i) == aluno.respostas.charAt(i))
+                if(resposta.charAt(i) == aluno.resposta.charAt(i))
                     pontos++;
             }
             aluno.nota = pontos;

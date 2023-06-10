@@ -2,12 +2,12 @@ import java.io.Serializable;
 
 public class Aluno implements Serializable{
     String nome;
-    String respostas;
+    String resposta;
     int nota;
 
-    public Aluno(String nome , String respostas) {
+    public Aluno(String nome , String resposta) {
         this.nome = nome;
-        this.respostas = respostas;
+        this.resposta = resposta;
     }
 
     public String getNome() {
@@ -18,15 +18,15 @@ public class Aluno implements Serializable{
         this.nome = nome;
     }
 
-    public String getRespostas() {
-        return respostas;
+    public String getResposta() {
+        return resposta;
     }
 
-    public void setRespostas(String respostas) {
-        this.respostas = respostas; 
+    public void setResposta(String resposta) {
+        this.resposta = resposta; 
     }
 
     public String toSting(){
-        return "nome: " + nome + ", nota: " + respostas;
+        return "nome: " + nome + ", nota: " + resposta;
     }
 }

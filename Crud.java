@@ -2,12 +2,15 @@ import java.io.*;
 
 public class Crud {
     
-    public boolean createStudent(String disciplina, Aluno aluno){
-        File file = new File("Data/"+disciplina + ".txt");
+    public boolean createStudent(Disciplina disciplina, Aluno aluno){
+        
         try {
-            ObjectOutputStream objWriter = new ObjectOutputStream(new FileOutputStream(file));
-            objWriter.writeObject(aluno);
-            objWriter.close();
+            FileWriter fWriter = new FileWriter("Data/"+ disciplina.nome + ".txt", true);
+            BufferedWriter bWriter = new BufferedWriter(fWriter);
+            bWriter.write(aluno.toSting());
+            bWriter.newLine();
+            bWriter.close();
+            fWriter.close();
             return true;
         } catch (Exception e) {
             return false;

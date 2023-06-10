@@ -1,6 +1,7 @@
 public class Aluno {
     String nome;
     String respostas;
+    int nota;
 
     public Aluno(String nome , String respostas) {
         this.nome = nome;
@@ -20,10 +21,10 @@ public class Aluno {
     }
 
     public void setRespostas(String respostas) {
-        this.respostas = respostas;
+        this.respostas = respostas; 
     }
 
     public String toSting(){
-        return "nome: " + nome + ", respostas: " + respostas;
+        return "nome: " + nome + ", nota: " + respostas;
     }
 }

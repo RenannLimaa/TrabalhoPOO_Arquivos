@@ -9,11 +9,6 @@ public class Aluno implements Serializable{
         this.nome = nome;
         this.resposta = resposta;
     }
-    public Aluno() {
-        nome = "";
-        resposta = "";
-    }
-
     public String getNome() {
         return nome;
     }
@@ -31,6 +26,6 @@ public class Aluno implements Serializable{
     }
 
     public String toString(){
-        return nota + "\t" + nome;
+        return resposta + "\t" + nome;
     }
 }

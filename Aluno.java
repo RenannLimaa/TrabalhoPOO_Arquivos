@@ -1,13 +1,17 @@
 import java.io.Serializable;
 
 public class Aluno implements Serializable{
-    String nome;
-    String resposta;
-    int nota;
+    public String nome;
+    public String resposta;
+    public int nota;
 
     public Aluno(String nome , String resposta) {
         this.nome = nome;
         this.resposta = resposta;
+    }
+    public Aluno() {
+        nome = "";
+        resposta = "";
     }
 
     public String getNome() {
@@ -26,7 +30,7 @@ public class Aluno implements Serializable{
         this.resposta = resposta; 
     }
 
-    public String toSting(){
-        return "nome: " + nome + "\tnota: " + nota;
+    public String toString(){
+        return nota + "\t" + nome;
     }
 }

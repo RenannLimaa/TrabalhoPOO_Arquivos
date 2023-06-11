@@ -3,8 +3,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Disciplina {
-    String nome;
-    ArrayList <Aluno> alunos;
+    public String nome;
+    public ArrayList <Aluno> alunos;
 
 
     public Disciplina (String nome){
@@ -47,6 +47,8 @@ public class Disciplina {
             aluno.nota = pontos;
         }
     }
+
+   
 
     
 }

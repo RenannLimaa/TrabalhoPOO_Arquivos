@@ -29,8 +29,8 @@ public class Main {
         
           teste.readFile(algebra);
 
-        for (Aluno aluno: algebra.alunos) {
-            System.out.println(aluno.nome +" "+aluno.resposta);
+        for (Aluno aluno: algebra.getAlunos()) {
+            System.out.println(aluno.getNome() +" "+aluno.getResposta());
         } 
 
         algebra.gerarLista();

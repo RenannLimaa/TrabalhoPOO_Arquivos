@@ -2,39 +2,41 @@
 public class Main {
     public static void main(String[] args) {
         Crud teste = new Crud();
-        Disciplina Algebra = new Disciplina("Algebra");
-        
-        /* Aluno aluno1 = new Aluno("Yuri", "VFVFVFVFVF");
-        Aluno aluno2 = new Aluno("Renan", "VFVFVFVFVF");
-        Aluno aluno3 = new Aluno("Diogo", "VVVVVVVVVV");
+        Disciplina algebra = new Disciplina("Algebra");
+        /* 
+        Aluno aluno1 = new Aluno("Emanuel", "VVVVVFFFFF");
+        Aluno aluno2 = new Aluno("Gabriel", "FFFFFVVVVV");
+        Aluno aluno3 = new Aluno("Diego", "VVVVVVVFFF");
 
-        Algebra.addAluno(aluno1);
-        Algebra.addAluno(aluno2);
-        Algebra.addAluno(aluno3);
+        algebra.addAluno(aluno1);
+        algebra.addAluno(aluno2);
+        algebra.addAluno(aluno3);
 
         teste.createFile("Algebra");
-        if(teste.createStudent(Algebra, aluno1)){
+        if(teste.createStudent(algebra, aluno1)){
             System.out.println("aluno criado com sucesso");
 
         }
-        if(teste.createStudent(Algebra, aluno2)){
+        if(teste.createStudent(algebra, aluno2)){
             System.out.println("aluno criado com sucesso");
 
         }
-        if(teste.createStudent(Algebra, aluno3)){
+        if(teste.createStudent(algebra, aluno3)){
             System.out.println("aluno criado com sucesso");
 
 
-        } */
+        }   */
         
-        teste.readFile(Algebra);
+          teste.readFile(algebra);
 
-        for (Aluno aluno: Algebra.alunos) {
+        for (Aluno aluno: algebra.alunos) {
             System.out.println(aluno.nome +" "+aluno.resposta);
-        }  
+        } 
 
-        Algebra.gerarLista();
-
-
+        algebra.gerarLista();
+    
     }
-}
+    
+}  
+
+

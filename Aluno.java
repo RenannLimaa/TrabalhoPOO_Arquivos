@@ -1,6 +1,5 @@
-import java.io.Serializable;
 
-public class Aluno implements Serializable, Comparable<Aluno>{
+public class Aluno implements Comparable<Aluno>{
     public String nome;
     public String resposta;
     public int nota;
@@ -47,5 +46,9 @@ public class Aluno implements Serializable, Comparable<Aluno>{
 
     public String toString(){
         return resposta + "\t" + nome;
+    }
+
+    public String toStringNota(){
+        return nome + "\t\t" + nota;
     }
 }

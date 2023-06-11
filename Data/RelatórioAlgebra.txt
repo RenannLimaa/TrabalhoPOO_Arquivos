@@ -1,0 +1,6 @@
+Yuri		10
+Renan		10
+Emanuel		6
+Diego		6
+Gabriel		4
+Diogo		0

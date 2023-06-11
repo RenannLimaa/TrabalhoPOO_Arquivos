@@ -27,18 +27,38 @@ public class Disciplina {
         sortByName(alunos);
 
         for (Aluno aluno : alunos) {
-            write.writeFile(aluno.toString(), "Data/"+nome+"/Relatorio/Lista.txt");
+            write.writeFile(aluno.toStringNota(), "Data/"+nome+"/Relatório/Lista.txt");
         }
     }
     private static void sortByName(ArrayList<Aluno> alunos) {
         Collections.sort(alunos, new AlunoComparator());
     }
     
+    public void gerarRanking(){
+        Crud write = new Crud();
+        corrigirProvas(nome);
+        sortNotas();
+
+        for (Aluno aluno : alunos) {
+            write.writeFile(aluno.toStringNota(), "Data/"+nome+"/Relatório/ranking.txt");
+        }
+    }
+
+    public void sortNotas(){
+        for(int i = 0; i < alunos.size(); i++){
+            for (int j = i+1; j < alunos.size(); j++){
+                if(alunos.get(i).nota < alunos.get(j).nota ){
+                    Collections.swap(alunos, i, j);
+                }
+            }
+        }
+    }
+
+
     public void corrigirProvas(String gabaritoFile){
         String resposta  = "";
-        int pontos = 0;
         try {
-            FileReader fReader = new FileReader("Data/" +  gabaritoFile + ".txt");
+            FileReader fReader = new FileReader("Data/"+nome+"/" +  gabaritoFile + ".txt");
             BufferedReader bReader = new BufferedReader(fReader);
             resposta = bReader.readLine();
             fReader.close();
@@ -49,8 +69,10 @@ public class Disciplina {
 
         for (Aluno aluno : alunos) {
             if(aluno.resposta.equals("VVVVVVVVVV") || aluno.resposta.equals("FFFFFFFFFF")){
+                aluno.nota = 0;
                 continue;
             }
+            int pontos = 0;
             for(int i = 0; i < 10 ; i++){
                 if(resposta.charAt(i) == aluno.resposta.charAt(i))
                     pontos++;

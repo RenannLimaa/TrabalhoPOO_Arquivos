@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Disciplina {
     String nome;
@@ -20,11 +21,19 @@ public class Disciplina {
         return true;
     }
 
-    public boolean gerarResultado(ArrayList<Aluno> alunos){
-         
+    public void gerarLista(){
+        Crud write = new Crud();
+        corrigirProvas(nome);
+        sortByName(alunos);
 
-        return false;
-    } 
+        for (Aluno aluno : alunos) {
+            write.writeFile(aluno.toString(), "Data/"+nome+"/Relatorio/Lista.txt");
+        }
+    }
+    private static void sortByName(ArrayList<Aluno> alunos) {
+        Collections.sort(alunos, new AlunoComparator());
+    }
+    
     public void corrigirProvas(String gabaritoFile){
         String resposta  = "";
         int pontos = 0;
@@ -39,6 +48,9 @@ public class Disciplina {
         }
 
         for (Aluno aluno : alunos) {
+            if(aluno.resposta.equals("VVVVVVVVVV") || aluno.resposta.equals("FFFFFFFFFF")){
+                continue;
+            }
             for(int i = 0; i < 10 ; i++){
                 if(resposta.charAt(i) == aluno.resposta.charAt(i))
                     pontos++;

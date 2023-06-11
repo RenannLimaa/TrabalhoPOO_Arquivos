@@ -1,3 +1,4 @@
+
 public class Main {
     public static void main(String[] args) {
         Crud teste = new Crud();
@@ -32,7 +33,7 @@ public class Main {
             System.out.println(aluno.nome +" "+aluno.resposta);
         }  
 
-        
+        Algebra.gerarLista();
 
 
     }

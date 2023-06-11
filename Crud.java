@@ -5,7 +5,7 @@ public class Crud {
     public boolean createStudent(Disciplina disciplina, Aluno aluno){
         
         try {
-            FileWriter fWriter = new FileWriter("Data/"+disciplina.nome + ".txt", true);
+            FileWriter fWriter = new FileWriter("Data/"+disciplina.getNome() + ".txt", true);
             BufferedWriter bWriter = new BufferedWriter(fWriter);
             bWriter.write(aluno.toString());
             bWriter.newLine();
@@ -19,18 +19,18 @@ public class Crud {
     }
     
     public void readFile(Disciplina disciplina){
-        disciplina.alunos.clear();
+        disciplina.getAlunos().clear();
         Aluno aluno;
         FileReader fReader;
 
         try{
-            fReader = new FileReader("Data/"+disciplina.nome+".txt");
+            fReader = new FileReader("Data/"+disciplina.getNome()+".txt");
             BufferedReader bReader = new BufferedReader(fReader);
             String linha = bReader.readLine();
             while(linha != null){
                 String[] dados = linha.split("\t");
                 aluno = new Aluno(dados[1], dados[0]);
-                disciplina.alunos.add(aluno);
+                disciplina.getAlunos().add(aluno);
                 linha = bReader.readLine();
 
             }

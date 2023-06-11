@@ -1,14 +1,23 @@
 
 
 public class Aluno {
-    public String nome;
-    public String resposta;
-    public int nota;
+    private String nome;
+    private String resposta;
+    private int nota;
 
     public Aluno(String nome , String resposta) {
         this.nome = nome;
         this.resposta = resposta;
     }
+
+    public int getNota() {
+        return nota;
+    }
+
+    public void setNota(int nota) {
+        this.nota = nota;
+    }
+    
     public String getNome() {
         return nome;
     }

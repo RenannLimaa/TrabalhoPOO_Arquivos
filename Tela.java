@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Tela {
     Scanner input = new Scanner(System.in);
+    File file;
+    Crud crud = new Crud();
 
     public void mostrarTelaInicial() {
         System.out.println("1. Adicionar disciplina");
@@ -31,6 +33,56 @@ public class Tela {
         System.out.println("2. Mostrar alunos matriculados");
         System.out.println("3. Mostrar resultados da disciplina");
         System.out.println("4. Voltar para tela inicial");
+    }
+
+    public void selecionarDisciplina() {
+        String nomeDisciplina;
+        Scanner input = new Scanner(System.in);
+        Disciplina disciplina;
+        Integer comando;
+
+        mostrarDisciplinas();
+        System.out.println("Digite o nome da disciplina que deseja consultar");
+        nomeDisciplina = input.nextLine();
+        ClearConsole();
+
+        disciplina = new Disciplina(nomeDisciplina);  
+        file = new File("Data/" + nomeDisciplina);
+
+        if(file.exists() == false) {
+            return;
+        }
+        
+        crud.readFile(disciplina);
+        mostrarTelaDisciplina(nomeDisciplina);
+
+        System.out.println("Digite o numero respectivo ao que você deseja fazer");
+        comando = input.nextInt();
+        ClearConsole();
+
+        switch (comando) {
+            case 1:
+                mostrarTelaAluno();                        
+                
+                break;
+            case 2:
+                for(Aluno newAluno: disciplina.getAlunos()) {
+                    System.out.println(newAluno.getNome());
+                }
+
+                break;
+            
+            case 3: 
+                
+                break;
+        
+            case 4: 
+                
+            default:
+                break;
+            
+        }
+
     }
 
     public Aluno mostrarTelaAluno() {

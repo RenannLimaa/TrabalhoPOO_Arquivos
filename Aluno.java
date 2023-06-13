@@ -4,6 +4,8 @@ public class Aluno implements Comparable<Aluno>{
     private String resposta;
     private int nota;
 
+
+    
     public Aluno(String nome , String resposta) {
         this.nome = nome;
         this.resposta = resposta;

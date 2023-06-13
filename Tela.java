@@ -6,8 +6,8 @@ public class Tela {
 
     public void mostrarTelaInicial() {
         System.out.println("1. Adicionar disciplina");
-        System.out.println("2. Consultar disciplina");
-        System.out.println("Sair do programa");  // System.exit();
+        System.out.println("2. Consultar disciplinas");
+        System.out.println("3. Sair do programa");  // System.exit();
     }
 
     public void mostrarDisciplinas() {
@@ -24,24 +24,26 @@ public class Tela {
         }
     }
 
-    public void mostrarTelaDisciplina() {
-        System.out.println("1. Matricular alunos ");
+    public void mostrarTelaDisciplina(String nomeDisciplina) {
+        System.out.println("--------------------------"+ nomeDisciplina+ "--------------------------");
+
+        System.out.println("1. Matricular aluno ");
         System.out.println("2. Mostrar alunos matriculados");
         System.out.println("3. Mostrar resultados da disciplina");
         System.out.println("4. Voltar para tela inicial");
     }
 
-    public Aluno mostrarTelaAluno(Aluno aluno) {
+    public Aluno mostrarTelaAluno() {
+        Aluno aluno;
         String nome, respostas;
         System.out.println("Digite o nome do aluno");
        
         nome = input.nextLine();
-        aluno.setNome(nome);
 
         System.out.println("Digite o cartao resposta do aluno:");
         respostas = input.nextLine();
 
-        aluno.setResposta(respostas);
+        aluno = new Aluno(nome, respostas);
 
 
         return aluno;

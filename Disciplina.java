@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,7 +24,12 @@ public class Disciplina {
     }
 
     public void gerarLista(){
+        File file = new File("Data/"+nome+"/Relatório/Lista.txt");
         Crud write = new Crud();
+        if(file.exists()){
+            file.delete();
+        }
+
         corrigirProvas(nome);
         sortByName(alunos);
 
@@ -36,12 +42,17 @@ public class Disciplina {
     }
     
     public void gerarRanking(){
+        File file = new File("Data/"+nome+"/Relatório/Ranking.txt");
         Crud write = new Crud();
+
+        if(file.exists()){
+            file.delete();
+        }
         corrigirProvas(nome);
         sortNotas();
         
         for (Aluno aluno : alunos) {
-            write.writeFile(aluno.toStringNota(), "Data/"+nome+"/Relatório/ranking.txt");
+            write.writeFile(aluno.toStringNota(), "Data/"+nome+"/Relatório/Ranking.txt");
         }
     }
 

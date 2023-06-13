@@ -50,7 +50,7 @@ public class Tela {
 
         System.out.println("\n\n1. Matricular aluno ");
         System.out.println("2. Mostrar alunos matriculados");
-        System.out.println("3. Mostrar resultados da disciplina");
+        System.out.println("3. Gerar resultados da disciplina");
         System.out.println("4. Voltar para tela inicial");
     }
 

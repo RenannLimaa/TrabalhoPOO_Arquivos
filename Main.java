@@ -1,4 +1,3 @@
-import java.io.File;
 import java.util.Scanner;
 
 public class Main {
@@ -27,6 +26,11 @@ public class Main {
     
                 case 2: 
                     disciplina = tela.selecionarDisciplina();
+                    if(disciplina == null){
+                        System.out.println("Arquivo não encontrado.");
+                        tela.mostrarTransição(2000);
+                        break;
+                    }
                     tela.mostrarMenuDisciplina(disciplina);
                     break;
                 case 3: 
@@ -38,6 +42,7 @@ public class Main {
         
     
     }
+
     private static void clearBuffer(Scanner scanner) {
         if (scanner.hasNextLine()) {
             scanner.nextLine();

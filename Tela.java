@@ -1,12 +1,10 @@
 import java.io.File;
-import java.util.Dictionary;
 import java.util.Scanner;
 
 public class Tela {
     private Scanner input = new Scanner(System.in);
     private File file;
     private Crud crud = new Crud();
-    private Disciplina disciplina;
     private String nomeDisciplina;
     private String gabarito;
     private Aluno aluno;
@@ -18,10 +16,11 @@ public class Tela {
     }
 
     public void criarDisciplina(){
+        Disciplina disciplina;
 
         System.out.println("Digite o nome da disciplina que deseja adicionar");
-
         nomeDisciplina = input.nextLine();
+        
         disciplina = new Disciplina(nomeDisciplina);
         crud.createFile(nomeDisciplina);
 
@@ -108,9 +107,16 @@ public class Tela {
                 break;
             
             case 3: 
-
+                file = new File("Data/"+disciplina.getNome()+"/Gabarito.txt");
                 if(disciplina.getAlunos().isEmpty()){
                     System.out.println( disciplina.getNome() +" não possui alunos matriculados");
+                    mostrarTransição(2000);
+                    break;
+                }
+                
+                if(file.exists()==false){
+                    System.out.println( disciplina.getNome() +" não possui gabarito");
+                    mostrarTransição(2000);
                     break;
                 }
                 crud.readFile(disciplina);
@@ -166,8 +172,8 @@ public class Tela {
         String nome, respostas;
         System.out.println("Digite o nome do aluno: ");
        
-        clearBuffer(input);
-        nome = input.nextLine();
+/*         clearBuffer(input);
+ */        nome = input.nextLine();
         
 
         System.out.println("Digite o cartao resposta do aluno:");

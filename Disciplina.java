@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javax.print.attribute.standard.Media;
 
 public class Disciplina {
     private String nome;
@@ -34,7 +33,7 @@ public class Disciplina {
             file.delete();
         }
 
-        corrigirProvas(nome);
+        corrigirProvas();
         sortByName(alunos);
 
         for (Aluno aluno : alunos) {
@@ -43,7 +42,7 @@ public class Disciplina {
         }
 
             media /= alunos.size();
-            write.writeFile("\nMedia geral:  " + media, "Data/"+nome+"/Relatório/Ranking.txt");
+            write.writeFile("\nMedia geral:  " + media, "Data/"+nome+"/Relatório/Lista.txt");
     }
     private static void sortByName(ArrayList<Aluno> alunos) {
         Collections.sort(alunos, new AlunoComparator());
@@ -57,7 +56,7 @@ public class Disciplina {
         if(file.exists()){
             file.delete();
         }
-        corrigirProvas(nome);
+        corrigirProvas();
         Collections.sort(alunos);
         
 
@@ -70,10 +69,10 @@ public class Disciplina {
     }
 
     
-    public void corrigirProvas(String gabaritoFile){
+    public void corrigirProvas(){
         String resposta  = "";
         try {
-            FileReader fReader = new FileReader("Data/"+nome+"/" +  gabaritoFile + ".txt");
+            FileReader fReader = new FileReader("Data/"+nome+"/Gabarito.txt");
             BufferedReader bReader = new BufferedReader(fReader);
             resposta = bReader.readLine();
             fReader.close();

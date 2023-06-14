@@ -8,6 +8,7 @@ public class Tela {
     private Crud crud = new Crud();
     private Disciplina disciplina;
     private String nomeDisciplina;
+    private String gabarito;
     private Aluno aluno;
 
     public void mostrarTelaInicial() {
@@ -45,15 +46,6 @@ public class Tela {
         }
     }
 
-    public void mostrarMenuDisciplina(String nomeDisciplina) {
-        System.out.println("-------------------------- "+ nomeDisciplina+ " --------------------------");
-
-        System.out.println("\n\n1. Matricular aluno ");
-        System.out.println("2. Mostrar alunos matriculados");
-        System.out.println("3. Gerar resultados da disciplina");
-        System.out.println("4. Voltar para tela inicial");
-    }
-
     public Disciplina selecionarDisciplina() {
         Scanner input = new Scanner(System.in);
         Disciplina disciplina;
@@ -77,16 +69,30 @@ public class Tela {
 
     }
 
+
+    public void mostrarMenuDisciplina(String nomeDisciplina) {
+        System.out.println("-------------------------- "+ nomeDisciplina+ " --------------------------");
+
+        System.out.println("\n\n1. Matricular aluno ");
+        System.out.println("2. Mostrar alunos matriculados");
+        System.out.println("3. Gerar resultados da disciplina");
+        System.out.println("4. Adicionar ou editar gabarito");
+        System.out.println("5. Voltar para tela inicial");
+    }
+
+
     public void mostrarMenuDisciplina(Disciplina disciplina){
         int comando = -1;
 
 
-        while(comando != 4){
+        while(comando != 5){
+
             ClearConsole();
             mostrarMenuDisciplina(disciplina.getNome());
     
             System.out.println("Digite o numero respectivo ao que você deseja fazer");
             comando = input.nextInt();
+            clearBuffer(input);
             ClearConsole();
 
             switch (comando) {
@@ -112,6 +118,23 @@ public class Tela {
                 disciplina.gerarRanking();
                 System.out.println("Arquivos com resultados gerados com sucesso.");
                 mostrarTransição(2000);
+                break;
+
+            case 4:
+
+                System.out.println("Digite o gabarito para " + disciplina.getNome());
+                gabarito = input.nextLine();
+
+                File file = new File("Data/"+ nomeDisciplina +"/Gabarito.txt");
+
+                if(file.exists())
+                    file.delete();
+
+                crud.writeFile(gabarito, "Data/"+ nomeDisciplina +"/Gabarito.txt" );    
+
+                System.out.println("Gabarito adicionado com sucesso.");
+                mostrarTransição(2000);
+
                 break;
         
             default:

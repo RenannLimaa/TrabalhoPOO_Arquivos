@@ -2,3 +2,5 @@ Emanuel               10
 Diego                 8
 Bia                   7
 Gabriel               0
+
+Media geral:  6.25

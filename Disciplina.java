@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import javax.print.attribute.standard.Media;
+
 public class Disciplina {
     private String nome;
     private ArrayList <Aluno> alunos;
@@ -26,6 +28,8 @@ public class Disciplina {
     public void gerarLista(){
         File file = new File("Data/"+nome+"/Relatório/Lista.txt");
         Crud write = new Crud();
+        double media = 0;
+
         if(file.exists()){
             file.delete();
         }
@@ -35,7 +39,11 @@ public class Disciplina {
 
         for (Aluno aluno : alunos) {
             write.writeFile(aluno.toStringNota(), "Data/"+nome+"/Relatório/Lista.txt");
+            media += aluno.getNota();
         }
+
+            media /= alunos.size();
+            write.writeFile("\nMedia geral:  " + media, "Data/"+nome+"/Relatório/Ranking.txt");
     }
     private static void sortByName(ArrayList<Aluno> alunos) {
         Collections.sort(alunos, new AlunoComparator());
@@ -44,6 +52,7 @@ public class Disciplina {
     public void gerarRanking(){
         File file = new File("Data/"+nome+"/Relatório/Ranking.txt");
         Crud write = new Crud();
+        double media = 0;
 
         if(file.exists()){
             file.delete();
@@ -51,9 +60,13 @@ public class Disciplina {
         corrigirProvas(nome);
         Collections.sort(alunos);
         
+
         for (Aluno aluno : alunos) {
             write.writeFile(aluno.toStringNota(), "Data/"+nome+"/Relatório/Ranking.txt");
+            media += aluno.getNota();
         }
+            media /= alunos.size();
+            write.writeFile("\nMedia geral:  " + media, "Data/"+nome+"/Relatório/Ranking.txt");
     }
 
     
@@ -82,6 +95,7 @@ public class Disciplina {
             aluno.setNota(pontos);
         }
     }
+
     
     public String getNome() {
         return nome;

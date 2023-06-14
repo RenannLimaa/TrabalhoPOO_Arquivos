@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Tela {
     private Scanner input = new Scanner(System.in);
     private File file;
-    private Crud crud = new Crud();
+    private Controller controller = new Controller();
     private String nomeDisciplina;
     private String gabarito;
     private Aluno aluno;
@@ -22,7 +22,7 @@ public class Tela {
         nomeDisciplina = input.nextLine();
         
         disciplina = new Disciplina(nomeDisciplina);
-        crud.createFile(nomeDisciplina);
+        controller.createFile(nomeDisciplina);
 
         System.out.println("Disciplina criada com sucesso.");
         mostrarTransição(2000);
@@ -62,7 +62,7 @@ public class Tela {
             return null;
         }
         
-        crud.readFile(disciplina);
+        controller.readFile(disciplina);
 
         return disciplina;
 
@@ -97,11 +97,11 @@ public class Tela {
             switch (comando) {
             case 1:
                 aluno = cadastrarAluno();   
-                crud.createStudent(disciplina, aluno);                   
+                controller.createStudent(disciplina, aluno);                   
                 
                 break;
             case 2:
-                crud.readFile(disciplina);
+                controller.readFile(disciplina);
                 mostrarAlunos(disciplina);
                 mostrarTransição(3000);
                 break;
@@ -119,7 +119,7 @@ public class Tela {
                     mostrarTransição(2000);
                     break;
                 }
-                crud.readFile(disciplina);
+                controller.readFile(disciplina);
                 disciplina.gerarLista();
                 disciplina.gerarRanking();
                 System.out.println("Arquivos com resultados gerados com sucesso.");
@@ -136,7 +136,7 @@ public class Tela {
                 if(file.exists())
                     file.delete();
 
-                crud.writeFile(gabarito, "Data/"+ nomeDisciplina +"/Gabarito.txt" );    
+                controller.writeFile(gabarito, "Data/"+ nomeDisciplina +"/Gabarito.txt" );    
 
                 System.out.println("Gabarito adicionado com sucesso.");
                 mostrarTransição(2000);

@@ -26,7 +26,7 @@ public class Disciplina {
 
     public void gerarLista(){
         File file = new File("Data/"+nome+"/Relatório/Lista.txt");
-        Crud write = new Crud();
+        Controller write = new Controller();
         double media = 0;
 
         if(file.exists()){
@@ -50,7 +50,7 @@ public class Disciplina {
     
     public void gerarRanking(){
         File file = new File("Data/"+nome+"/Relatório/Ranking.txt");
-        Crud write = new Crud();
+        Controller write = new Controller();
         double media = 0;
 
         if(file.exists()){

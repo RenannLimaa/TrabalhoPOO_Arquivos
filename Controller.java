@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Crud {
+public class Controller {
     
     public boolean createStudent(Disciplina disciplina, Aluno aluno){
         

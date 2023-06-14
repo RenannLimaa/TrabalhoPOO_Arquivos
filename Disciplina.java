@@ -49,23 +49,13 @@ public class Disciplina {
             file.delete();
         }
         corrigirProvas(nome);
-        sortNotas();
+        Collections.sort(alunos);
         
         for (Aluno aluno : alunos) {
             write.writeFile(aluno.toStringNota(), "Data/"+nome+"/Relatório/Ranking.txt");
         }
     }
 
-    public void sortNotas(){
-        for(int i = 0; i < alunos.size(); i++){
-            for (int j = i+1; j < alunos.size(); j++){
-                if(alunos.get(i).getNota() < alunos.get(j).getNota() ){
-                    Collections.swap(alunos, i, j);
-                }
-            }
-        }
-    }
-    
     
     public void corrigirProvas(String gabaritoFile){
         String resposta  = "";

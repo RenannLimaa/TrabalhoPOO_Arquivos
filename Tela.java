@@ -90,7 +90,7 @@ public class Tela {
             ClearConsole();
             mostrarMenuDisciplina(disciplina.getNome());
     
-            System.out.println("Digite o numero respectivo ao que você deseja fazer");
+            System.out.println("\nDigite o numero respectivo ao que você deseja fazer");
             comando = input.nextInt();
             clearBuffer(input);
             ClearConsole();

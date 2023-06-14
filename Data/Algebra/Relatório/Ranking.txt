@@ -1,4 +1,4 @@
-Bia                   7
-Diego                 8
 Emanuel               10
+Diego                 8
+Bia                   7
 Gabriel               0

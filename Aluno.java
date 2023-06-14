@@ -11,10 +11,10 @@ public class Aluno implements Comparable<Aluno>{
         this.resposta = resposta;
     }
     public int compareTo(Aluno aluno){
-        if(this.nota < aluno.getNota()){
+        if(nota > aluno.getNota()){
             return -1;
         }
-        if(this.nota < aluno.getNota()){
+        if(nota > aluno.getNota()){
             return 1;
         }
         return 0;
@@ -50,6 +50,7 @@ public class Aluno implements Comparable<Aluno>{
     }
 
     public String toStringNota(){
-        return nome + "\t\t" + nota;
+        String linha = String.format("%-20s  %d", nome, nota);;
+        return linha;
     }
 }

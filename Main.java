@@ -13,7 +13,7 @@ public class Main {
             System.out.println("------------------- Bem vindo ao Sistema de Gabarito UECE -------------------\n\n");
             tela.mostrarTelaInicial();
     
-            System.out.println("Digite o número respectivo ao que você deseja fazer: ");
+            System.out.println("\nDigite o número respectivo ao que você deseja fazer: ");
             comando = input.nextInt();
             clearBuffer(input);
             tela.ClearConsole();
